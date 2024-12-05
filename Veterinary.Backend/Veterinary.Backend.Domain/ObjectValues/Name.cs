@@ -5,13 +5,13 @@ namespace Veterinary.Backend.Domain.ObjectValues
 {
     public partial record Name
     {
-        private const string RegexPattern = @"^$";
+        private const string RegexPattern = @"^([a-zA-Z]\s*)+$";
 
-        public string Fullname { get; init; }
+        public string Value { get; init; }
 
-        private Name(string fullName)
+        private Name(string value)
         {
-            this.Fullname = fullName;
+            this.Value = value;
         }
 
         public static Result<Name> Create(string fullName)
@@ -27,7 +27,7 @@ namespace Veterinary.Backend.Domain.ObjectValues
             else
             {
                 var newName = new Name(fullName);
-                return Result.Ok(newName);
+                return Result.Ok<Name>(newName);
             }
         }
 

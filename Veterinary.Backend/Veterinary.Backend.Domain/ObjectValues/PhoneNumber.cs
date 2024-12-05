@@ -5,13 +5,15 @@ namespace Veterinary.Backend.Domain.ObjectValues
 {
     public partial record PhoneNumber
     {
-        private const string RegexPattern = $"^$";
-        
-        public string Value { get; init; } = string.Empty;
+        private const string RegexPattern = @"^([0-9]{10})$";
 
-        private PhoneNumber(string phoneNumber)
+        private const int MaxLength = 10;
+        
+        public string Value { get; init; }
+
+        private PhoneNumber(string value)
         {
-            this.Value = phoneNumber; 
+            this.Value = value; 
         }
 
         public static Result<PhoneNumber> Create(string phoneNumber)
@@ -19,6 +21,10 @@ namespace Veterinary.Backend.Domain.ObjectValues
             if (string.IsNullOrEmpty(phoneNumber) || string.IsNullOrWhiteSpace(phoneNumber))
             {
                 return Result.Fail<PhoneNumber>("Phone number is required");
+            }
+            else if (phoneNumber.Length > MaxLength || phoneNumber.Length < 10)
+            {
+                return Result.Fail<PhoneNumber>("Phone number length is invalid"); 
             }
             else if (!Validate().IsMatch(phoneNumber))
             {

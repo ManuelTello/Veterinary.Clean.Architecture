@@ -5,7 +5,7 @@ namespace Veterinary.Backend.Domain.ObjectValues
 {
     public partial record Email
     {
-        private const string RegexPattern = $"^$";
+        private const string RegexPattern = @"^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
         
         public string Value { get; init; }
 

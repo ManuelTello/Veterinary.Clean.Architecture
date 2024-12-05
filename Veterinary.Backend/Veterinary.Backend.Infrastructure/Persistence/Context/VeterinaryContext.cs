@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Veterinary.Backend.Domain.AggregateRoots.Owner;
 
 namespace Veterinary.Backend.Infrastructure.Persistence.Context
 {
@@ -10,6 +11,8 @@ namespace Veterinary.Backend.Infrastructure.Persistence.Context
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(VeterinaryContext).Assembly);
         }
+        
+        public DbSet<Owner> Owners { get; set; }
     }
 }
 
