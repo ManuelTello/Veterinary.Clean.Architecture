@@ -12,6 +12,7 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     </ItemGroup>
 
@@ -24,7 +25,10 @@
     <ItemGroup>
       <ProjectReference Include="..\Veterinary.Backend.Application\Veterinary.Backend.Application.csproj" />
       <ProjectReference Include="..\Veterinary.Backend.Infrastructure\Veterinary.Backend.Infrastructure.csproj" />
-      <ProjectReference Include="..\Veterinary.Backend.Presentation\Veterinary.Backend.Presentation.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Contracts\" />
     </ItemGroup>
 
 </Project>

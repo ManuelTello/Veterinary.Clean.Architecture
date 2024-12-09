@@ -8,8 +8,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veterinary.Backend.Domain",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veterinary.Backend.Infrastructure", "Veterinary.Backend.Infrastructure\Veterinary.Backend.Infrastructure.csproj", "{3F3FBBF8-23B3-44E2-A5A2-5F03D0F1E92C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veterinary.Backend.Presentation", "Veterinary.Backend.Presentation\Veterinary.Backend.Presentation.csproj", "{9226CB5E-3FD3-4047-BDCC-0E86A38BD348}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,9 +30,5 @@ Global
 		{3F3FBBF8-23B3-44E2-A5A2-5F03D0F1E92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F3FBBF8-23B3-44E2-A5A2-5F03D0F1E92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F3FBBF8-23B3-44E2-A5A2-5F03D0F1E92C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9226CB5E-3FD3-4047-BDCC-0E86A38BD348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9226CB5E-3FD3-4047-BDCC-0E86A38BD348}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9226CB5E-3FD3-4047-BDCC-0E86A38BD348}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9226CB5E-3FD3-4047-BDCC-0E86A38BD348}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -17,4 +17,14 @@
       <PackageReference Include="MediatR" Version="12.4.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="QuerysHandlers\" />
+      <Folder Include="Queries\" />
+      <Folder Include="Responses\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Veterinary.Backend.Domain\Veterinary.Backend.Domain.csproj" />
+    </ItemGroup>
+
 </Project>
