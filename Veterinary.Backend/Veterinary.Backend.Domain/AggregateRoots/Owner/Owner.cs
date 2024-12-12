@@ -12,15 +12,18 @@ namespace Veterinary.Backend.Domain.AggregateRoots.Owner
         
         public PhoneNumber PhoneNumber { get; private set; }
         
-        //public ICollection<Pet.Pet> Pets { get; private set; }
+        public Identification Identification { get; private set; }
         
-        public Owner(Guid id,Name name, Email email, PhoneNumber phoneNumber)
+        public DateTime DateAddedToSystem { get; private set; }
+        
+        public Owner(Guid id,Name name, Email email, PhoneNumber phoneNumber,Identification identification ,DateTime dateAddedToSystem)
         {
             this.Id = id;
             this.Name = name;
             this.Email = email;
             this.PhoneNumber = phoneNumber;
-            //this.Pets = new List<Pet.Pet>();
+            this.Identification = identification;
+            this.DateAddedToSystem = dateAddedToSystem;
         }
         
         private Owner(){}

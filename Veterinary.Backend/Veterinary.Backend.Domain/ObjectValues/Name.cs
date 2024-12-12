@@ -14,17 +14,15 @@ namespace Veterinary.Backend.Domain.ObjectValues
             this.Value = value;
         }
 
-        public static Name Create(string fullName)
+        public static Result<Name> Create(string fullName)
         {
             if (string.IsNullOrEmpty(fullName) || string.IsNullOrWhiteSpace(fullName))
             {
-                throw new ArgumentException("Name is required");
-                //return Result.Fail<Name>("Name is required."); 
+                return Result.Fail<Name>(new Error("Name is required"));
             }
             else if (!Validate().IsMatch(fullName))
             {
-                throw new ArgumentException("Invalid name");
-                //return Result.Fail<Name>("Invalid name");
+                return Result.Fail<Name>(new Error("Invalid name"));
             }
             else
             {
