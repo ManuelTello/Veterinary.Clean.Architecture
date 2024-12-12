@@ -1,3 +1,4 @@
+using FluentResults;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Veterinary.Backend.Application.Commands;
@@ -17,11 +18,25 @@ namespace Veterinary.Backend.WebAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateOwner([FromBody] CreateOwnerContract contract)
+        public async Task<IActionResult> CreateOwner([FromBody] CreateOwnerContract contract)
         {
-            var command = new CreateOwnerCommand(contract.FullName, contract.Email, contract.PhoneNumber);
-            var result = this._sender.Send(command);
-            return Ok();
+            try
+            {
+                var command = new CreateOwnerCommand(contract.FullName, contract.Email, contract.PhoneNumber, contract.Identification);
+                var response = await this._sender.Send(command);
+                if (response.Errors.Count > 0)
+                {
+                    return BadRequest();
+                }
+                else
+                {
+                    return Ok();
+                }
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(500);
+            }
         }
     }
 }
