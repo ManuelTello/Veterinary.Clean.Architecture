@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Veterinary.Backend.Domain.AggregateRoots.Owner;
+using Veterinary.Backend.Infrastructure.Persistence.Repositories;
 
 namespace Veterinary.Backend.Infrastructure.Persistence.Configuration
 {
@@ -43,6 +44,17 @@ namespace Veterinary.Backend.Infrastructure.Persistence.Configuration
                     .HasColumnType("VARCHAR")
                     .HasMaxLength(10);
             });
+
+            builder.Property(owner => owner.Identification)
+                .HasColumnName("identification")
+                .IsRequired()
+                .HasColumnType("VARCHAR")
+                .HasMaxLength(250);
+
+            builder.Property(owner => owner.DateAddedToSystem)
+                .HasColumnName("date_added_to_system")
+                .IsRequired()
+                .HasColumnType("DATETIME");
         }
     }
 }
