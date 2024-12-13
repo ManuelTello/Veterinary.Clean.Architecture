@@ -1,4 +1,4 @@
-using FluentResults;
+using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Veterinary.Backend.Application.Commands;
@@ -12,9 +12,12 @@ namespace Veterinary.Backend.WebAPI.Controllers
     {
         private readonly ISender _sender;
 
-        public OwnersController(ISender sender)
+        private readonly IMapper _mapper;
+
+        public OwnersController(ISender sender, IMapper mapper)
         {
             this._sender = sender;
+            this._mapper = mapper;
         }
 
         [HttpPost]
@@ -40,4 +43,3 @@ namespace Veterinary.Backend.WebAPI.Controllers
         }
     }
 }
-
