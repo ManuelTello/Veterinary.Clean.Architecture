@@ -9,5 +9,6 @@ namespace Veterinary.Backend.Application.Commands
         string Email,
         string PhoneNumber,
         string Identification
-    ) : IRequest<Response<CreateOwnerCommandResponse>>;
+    //) : IRequest<Response<CreateOwnerCommandResponse>>;
+    ) : IRequest<CreateOwnerCommandResponse>;
 }
