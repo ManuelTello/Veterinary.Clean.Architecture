@@ -17,7 +17,7 @@ namespace Veterinary.Backend.Infrastructure.Persistence.Configuration
                 .HasColumnName("id")
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(36);
-            
+
             builder.OwnsOne(owner => owner.Name, name =>
             {
                 name.Property(n => n.Value)
@@ -45,11 +45,14 @@ namespace Veterinary.Backend.Infrastructure.Persistence.Configuration
                     .HasMaxLength(10);
             });
 
-            builder.Property(owner => owner.Identification)
-                .HasColumnName("identification")
-                .IsRequired()
-                .HasColumnType("VARCHAR")
-                .HasMaxLength(250);
+            builder.OwnsOne(owner => owner.Identification, identification =>
+            {
+                identification.Property(i => i.Value)
+                    .HasColumnName("identification")
+                    .IsRequired()
+                    .HasColumnType("VARCHAR")
+                    .HasMaxLength(255);
+            });
 
             builder.Property(owner => owner.DateAddedToSystem)
                 .HasColumnName("date_added_to_system")
